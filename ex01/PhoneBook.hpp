@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 14:21:11 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 14:56:46 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,38 @@ class PhoneBook {
             }
         };
         void search() {
+            std::string firstName;
+            std::string lastName;
+            std::string nickName;
+            
             std::cout << "     index|first name| last name|  nickname" << std::endl;
+            
             for (int i = 0; i < 8; i++){
                 if(!contacts[i].getFirstName().empty()) {
-                    std::cout << "         " << i << "|" << contacts[i].getFirstName() << "|" << contacts[i].getLastName() << "|" << contacts[i].getNickname() << std::endl;
+                    
+                    firstName = contacts[i].getFirstName().substr(0, 10);
+                    lastName = contacts[i].getLastName().substr(0, 10);
+                    nickName = contacts[i].getNickname().substr(0, 10);
+                    if (firstName.at(10) != '\0')
+                        firstName.back() =  '.';
+                    if (lastName.at(10) != '\0')
+                        lastName.back() =  '.';
+                    if (nickName.at(10) != '\0')
+                        nickName.back() =  '.';
+                    
+                    std::cout << "         " << i << "|"; 
+                    std::cout << firstName << "|";
+                    std::cout << lastName << "|";
+                    std::cout << nickName << std::endl;
                 }
             }
+            
             std::cout << "Enter index of the contact you want to see: ";
             int index;
             std::cin >> index;
+            
             if (index >= 0 && index < 8 && !contacts[index].getFirstName().empty()) {
-                std::cout << "         " << i << "|" << contacts[i].getFirstName() << "|" << contacts[i].getLastName() << "|" << contacts[i].getNickname() << std::endl;
+                printContact(contacts[index]);
             } else {
                 std::cerr << "Invalid index" << std::endl; //or cout?
             }
@@ -57,7 +78,6 @@ class PhoneBook {
             std::cout << "Nickname: " << contact.getNickname() << std::endl;
             std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
         };
-
-}
+};
 
 #endif
