@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 14:56:46 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 17:53:11 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ class PhoneBook {
             }
         };
         void search() {
-            std::string firstName;
-            std::string lastName;
-            std::string nickName;
+            std::string firstName, lastName, nickName;
             
+            std::cout << "*******************************************" << std::endl;
+            std::cout << "********** P H O N E B O O K **************" << std::endl;
+            std::cout << "*******************************************" << std::endl;
             std::cout << "     index|first name| last name|  nickname" << std::endl;
             
             for (int i = 0; i < 8; i++){
@@ -47,12 +48,21 @@ class PhoneBook {
                     firstName = contacts[i].getFirstName().substr(0, 10);
                     lastName = contacts[i].getLastName().substr(0, 10);
                     nickName = contacts[i].getNickname().substr(0, 10);
-                    if (firstName.at(10) != '\0')
+                    
+                    if (firstName.length() == 10)
                         firstName.back() =  '.';
-                    if (lastName.at(10) != '\0')
+                    else
+                        firstName.insert(0, 10 - firstName.length(), ' ');
+
+                    if (lastName.length() == 10)
                         lastName.back() =  '.';
-                    if (nickName.at(10) != '\0')
+                    else
+                        lastName.insert(0, 10 - lastName.length(), ' ');
+
+                    if (nickName.length() == 10)
                         nickName.back() =  '.';
+                    else
+                        nickName.insert(0, 10 - nickName.length(), ' ');
                     
                     std::cout << "         " << i << "|"; 
                     std::cout << firstName << "|";
@@ -71,7 +81,7 @@ class PhoneBook {
                 std::cerr << "Invalid index" << std::endl; //or cout?
             }
             
-        }
+        };
         void printContact(Contact contact){
             std::cout << "First name: " << contact.getFirstName() << std::endl;
             std::cout << "Last name: " << contact.getLastName() << std::endl;

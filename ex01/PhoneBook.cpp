@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 15:00:40 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 17:58:39 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int main() {
     std::cout << "Command: ";
     std::cin >> command;
 
-    while (command != "EXIT") {
+    do {
+        std::cout << "Command: ";
+        std::cin >> command;
         if (command == "ADD") {
             std::cout << "Please enter the following information: " << std::endl;
             std::cout << "First name: ";
@@ -50,7 +52,5 @@ int main() {
         } else {
             std::cerr << "Invalid command!" << std::endl;
         }
-        std::cout << "Command: " << std::endl;
-        std::cin >> command;
-    }
+    } while (command != "EXIT");
 }

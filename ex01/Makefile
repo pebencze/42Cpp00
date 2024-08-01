@@ -4,10 +4,11 @@ CPPFLAGS 		= 	-Wall -Wextra -Werror -std=c++98
 
 OBJS = ${SRCS:.cpp=.o}
 SRCS = PhoneBook.cpp
+INCL = PhoneBook.hpp Contact.hpp
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(INCL)
 	$(CPP) $(CPPFLAGS)  -c $< -o $@
 
 $(NAME): $(OBJS)
