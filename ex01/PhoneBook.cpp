@@ -6,30 +6,15 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 17:58:39 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 18:09:54 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int main() {
-    Contact contact;
-    PhoneBook phoneBook;
+void makeContact(Contact &contact) {
     std::string command;
-
-    std::cout << "Welcome to the phonebook!" << std::endl;
-    std::cout << "Please enter one of the following commands: " << std::endl;
-    std::cout << "  - ADD" << std::endl;
-    std::cout << "  - SEARCH" << std::endl;
-    std::cout << "  - EXIT" << std::endl;
-    std::cout << "Command: ";
-    std::cin >> command;
-
-    do {
-        std::cout << "Command: ";
-        std::cin >> command;
-        if (command == "ADD") {
             std::cout << "Please enter the following information: " << std::endl;
             std::cout << "First name: ";
             std::cin >> command;
@@ -46,6 +31,24 @@ int main() {
             std::cout << "Darkest secret: ";
             std::cin >> command;
             contact.setDarkestSecret(command);
+}
+
+int main() {
+    Contact contact;
+    PhoneBook phoneBook;
+    std::string command;
+
+    std::cout   << "Welcome to the phonebook!" << std::endl
+                << "Please enter one of the following commands: " << std::endl
+                << "  - ADD" << std::endl
+                << "  - SEARCH" << std::endl
+                << "  - EXIT" << std::endl;
+
+    do {
+        std::cout << "Command: ";
+        std::cin >> command;
+        if (command == "ADD") {
+            makeContact(contact);
             phoneBook.add(contact);
         } else if (command == "SEARCH") {
             phoneBook.search();
