@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 17:53:11 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 18:36:23 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,26 @@ class PhoneBook {
         Contact contacts[8];
     
     public:
-        void add(Contact contact) {
+        void makeContact(Contact &contact) {
+            std::string command;
+            std::cout << "Please enter the following information: " << std::endl;
+            std::cout << "First name: ";
+            std::cin >> command;
+            contact.setFirstName(command);
+            std::cout << "Last name: ";
+            std::cin >> command;
+            contact.setLastName(command);
+            std::cout << "Nickname: ";
+            std::cin >> command;
+            contact.setNickname(command);
+            std::cout << "Phone number: ";
+            std::cin >> command;
+            contact.setPhoneNumber(command);
+            std::cout << "Darkest secret: ";
+            std::cin >> command;
+            contact.setDarkestSecret(command);
+        };
+        void addContact(Contact contact) {
             int i;
             for (i = 0; i < 8; i++){
                 if(contacts[i].getFirstName().empty()) {
@@ -34,7 +53,7 @@ class PhoneBook {
                 contacts[0] = contact;
             }
         };
-        void search() {
+        void searchContact() {
             std::string firstName, lastName, nickName;
             
             std::cout << "*******************************************" << std::endl;
@@ -78,7 +97,7 @@ class PhoneBook {
             if (index >= 0 && index < 8 && !contacts[index].getFirstName().empty()) {
                 printContact(contacts[index]);
             } else {
-                std::cerr << "Invalid index" << std::endl; //or cout?
+                std::clog << "Invalid index" << std::endl; //or cout?
             }
             
         };

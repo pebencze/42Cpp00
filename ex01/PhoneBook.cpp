@@ -6,32 +6,12 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 18:09:54 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/01 19:02:41 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
-
-void makeContact(Contact &contact) {
-    std::string command;
-            std::cout << "Please enter the following information: " << std::endl;
-            std::cout << "First name: ";
-            std::cin >> command;
-            contact.setFirstName(command);
-            std::cout << "Last name: ";
-            std::cin >> command;
-            contact.setLastName(command);
-            std::cout << "Nickname: ";
-            std::cin >> command;
-            contact.setNickname(command);
-            std::cout << "Phone number: ";
-            std::cin >> command;
-            contact.setPhoneNumber(command);
-            std::cout << "Darkest secret: ";
-            std::cin >> command;
-            contact.setDarkestSecret(command);
-}
 
 int main() {
     Contact contact;
@@ -44,16 +24,20 @@ int main() {
                 << "  - SEARCH" << std::endl
                 << "  - EXIT" << std::endl;
 
-    do {
+    while (true) {
         std::cout << "Command: ";
         std::cin >> command;
         if (command == "ADD") {
-            makeContact(contact);
-            phoneBook.add(contact);
+            phoneBook.makeContact(contact);
+            phoneBook.addContact(contact);
         } else if (command == "SEARCH") {
-            phoneBook.search();
+            phoneBook.searchContact();
+        } else if (command == "EXIT") {
+            break;
         } else {
-            std::cerr << "Invalid command!" << std::endl;
+            std::clog << "Invalid command!" << std::endl;
         }
-    } while (command != "EXIT");
+    };
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return 0;
 }
