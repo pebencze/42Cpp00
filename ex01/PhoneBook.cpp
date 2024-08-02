@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:56:11 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:59:46 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void PhoneBook::add(Contact &contact) {
     std::cout << "Darkest secret: ";
     std::cin >> command;
     contact.setDarkestSecret(command);
-    addContact(contact);
+    _addContact(contact);
 }
         
-void PhoneBook::addContact(Contact contact) {
+void PhoneBook::_addContact(Contact contact) {
     int i;
     for (i = 0; i < 8; i++){
         if(_contacts[i].getFirstName().empty()) {

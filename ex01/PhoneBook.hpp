@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:41:04 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:59:46 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PhoneBook {
     private:
         Contact _contacts[8];
     
-        void addContact(Contact contact);
+        void _addContact(Contact contact);
 };
 
 #endif
