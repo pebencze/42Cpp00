@@ -6,16 +6,14 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 14:49:51 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:07:14 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int PhoneBook::contactCount = 0;
-
-PhoneBook::PhoneBook(void) {
+PhoneBook::PhoneBook(void) : contactCount(0) {
     std::cout   << "Welcome to the phonebook!" << std::endl
             << "Please enter one of the following commands: " << std::endl
             << "  - ADD" << std::endl
