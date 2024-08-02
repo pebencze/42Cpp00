@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:49:36 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:50:38 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main() {
             break;
         } else {
             std::clog << "Invalid command!" << std::endl;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     };
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return 0;

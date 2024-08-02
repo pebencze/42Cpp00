@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:01 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:52:47 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:38:17 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Contact::Contact(void) {
 }
 
 Contact::~Contact(void) {
-    std::cout << "Contact has been deleted." << std::endl;
     return;
 }
 

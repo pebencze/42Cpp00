@@ -6,12 +6,14 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:59:46 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 14:49:51 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
+
+int PhoneBook::contactCount = 0;
 
 PhoneBook::PhoneBook(void) {
     std::cout   << "Welcome to the phonebook!" << std::endl
@@ -51,20 +53,8 @@ void PhoneBook::add(Contact &contact) {
     std::cout << "Darkest secret: ";
     std::cin >> command;
     contact.setDarkestSecret(command);
-    _addContact(contact);
-}
-        
-void PhoneBook::_addContact(Contact contact) {
-    int i;
-    for (i = 0; i < 8; i++){
-        if(_contacts[i].getFirstName().empty()) {
-            _contacts[i] = contact;
-            break;
-        }
-    }
-    if (i == 8) {
-        _contacts[0] = contact;
-    }
+    _contacts[contactCount % 8] = contact;
+    contactCount++;
 }
         
 void PhoneBook::search() {
