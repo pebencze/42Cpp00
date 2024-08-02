@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:31:09 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:38:35 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ class PhoneBook {
         PhoneBook(void); //constructor
         ~PhoneBook(void); //destructor
         
-        void makeContact(Contact &contact) const;
-        void addContact(Contact contact); //could be private?
-        void searchContact();
+        void add(Contact &contact);
+        void search();
         void printContact(Contact contact) const;
         
     private:
         Contact _contacts[8];
     
+        void addContact(Contact contact);
 };
 
 #endif

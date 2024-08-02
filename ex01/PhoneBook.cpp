@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:22:34 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:38:33 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void PhoneBook::printContact(Contact contact) const {
             std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
 }
 
-void PhoneBook::makeContact(Contact &contact) const {
+void PhoneBook::add(Contact &contact) {
     std::string command;
     std::cout << "Please enter the following information: " << std::endl;
     std::cout << "First name: ";
@@ -46,6 +46,7 @@ void PhoneBook::makeContact(Contact &contact) const {
     std::cout << "Darkest secret: ";
     std::cin >> command;
     contact.setDarkestSecret(command);
+    addContact(contact);
 }
         
 void PhoneBook::addContact(Contact contact) {
@@ -61,7 +62,7 @@ void PhoneBook::addContact(Contact contact) {
     }
 }
         
-void PhoneBook::searchContact() {
+void PhoneBook::search() {
     std::string firstName, lastName, nickName;
     
     std::cout << "*******************************************" << std::endl;

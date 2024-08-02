@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 09:25:10 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:38:47 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ int main() {
         std::cout << "Command: ";
         std::cin >> command;
         if (command == "ADD") {
-            phoneBook.makeContact(contact);
-            phoneBook.addContact(contact);
+            phoneBook.add(contact);
         } else if (command == "SEARCH") {
-            phoneBook.searchContact();
+            phoneBook.search();
         } else if (command == "EXIT") {
             break;
         } else {
