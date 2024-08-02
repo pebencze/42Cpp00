@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:38:47 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:49:36 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ int main() {
     Contact contact;
     PhoneBook phoneBook;
     std::string command;
-
-    std::cout   << "Welcome to the phonebook!" << std::endl
-                << "Please enter one of the following commands: " << std::endl
-                << "  - ADD" << std::endl
-                << "  - SEARCH" << std::endl
-                << "  - EXIT" << std::endl;
 
     while (true) {
         std::cout << "Command: ";
@@ -36,6 +30,7 @@ int main() {
         } else {
             std::clog << "Invalid command!" << std::endl;
         }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     };
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return 0;

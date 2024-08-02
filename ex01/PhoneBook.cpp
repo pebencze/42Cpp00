@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 12:38:33 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 12:56:11 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
+    std::cout   << "Welcome to the phonebook!" << std::endl
+            << "Please enter one of the following commands: " << std::endl
+            << "  - ADD" << std::endl
+            << "  - SEARCH" << std::endl
+            << "  - EXIT" << std::endl;
     return;
 }
 
 PhoneBook::~PhoneBook(void) {
-    return;
+    std::cout << "Phonebook has been closed." << std::endl;
 }
 
 void PhoneBook::printContact(Contact contact) const {
