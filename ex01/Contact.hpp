@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:57:36 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 10:14:36 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 11:30:03 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,49 @@
 #include <iostream>
 
 class Contact {
-    private:
-        std::string firstName;
-        std::string lastName;
-        std::string nickName;
-        std::string phoneNumber;
-        std::string darkestSecret;
-        
     public:
-        Contact(void); //constructor
-        ~Contact(void); //destructor
+       // Contact(void); //constructor
+        //~Contact(void); //destructor
          
         void setFirstName(std::string firstName) {
-            this->firstName = firstName;
+            this->_firstName = firstName;
         }
         void setLastName(std::string lastName) {
-            this->lastName = lastName;
+            this->_lastName = lastName;
         }
         void setNickname(std::string nickName) {
-            this->nickName = nickName;
+            this->_nickName = nickName;
         }
         void setPhoneNumber(std::string phoneNumber) {
-            this->phoneNumber = phoneNumber;
+            this->_phoneNumber = phoneNumber;
         }
         void setDarkestSecret(std::string darkestSecret) {
-            this->darkestSecret = darkestSecret;
+            this->_darkestSecret = darkestSecret;
         }
         std::string getFirstName() {
-            return firstName;
+            return _firstName;
         }
         std::string getLastName() {
-            return lastName;
+            return _lastName;
         }
         std::string getNickname() {
-            return nickName;
+            return _nickName;
         }
         std::string getPhoneNumber() {
-            return phoneNumber;
+            return _phoneNumber;
         }
         std::string getDarkestSecret() {
-            return darkestSecret;
+            return _darkestSecret;
         } 
+        
+    private:
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickName;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
+        
+  
 };
 
 #endif
