@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 15:07:14 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:32:39 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void PhoneBook::add(Contact &contact) {
     contactCount++;
 }
         
-void PhoneBook::search() {
+void PhoneBook::search() const {
     std::string firstName, lastName, nickName;
     
     std::cout << "*******************************************" << std::endl;
@@ -93,11 +93,14 @@ void PhoneBook::search() {
     std::cout << "Enter index of the contact you want to see: ";
     int index;
     std::cin >> index;
-    
-    if (index >= 0 && index < 8 && !_contacts[index].getFirstName().empty()) {
+
+    if (std::cin.fail()){
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::clog << "Invalid index." << std::endl;
+    } else if (index >= 0 && index < 8 && !_contacts[index].getFirstName().empty()) {
         printContact(_contacts[index]);
     } else {
-        std::clog << "Invalid index" << std::endl; //or cout?
+        std::clog << "Invalid index." << std::endl;
     }
-    
 }

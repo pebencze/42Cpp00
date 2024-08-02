@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:01 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 14:38:17 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:22:25 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,23 @@ void Contact::setDarkestSecret(std::string darkestSecret) {
     this->_darkestSecret = darkestSecret;
 }
 
-std::string Contact::getFirstName() {
+std::string Contact::getFirstName () const {
     return _firstName;
 }
 
-std::string Contact::getLastName() {
+std::string Contact::getLastName() const {
     return _lastName;
 }
 
-std::string Contact::getNickname() {
+std::string Contact::getNickname() const {
     return _nickName;
 }
 
-std::string Contact::getPhoneNumber() {
+std::string Contact::getPhoneNumber() const {
     return _phoneNumber;
 }
 
-std::string Contact::getDarkestSecret() {
+std::string Contact::getDarkestSecret() const {
     return _darkestSecret;
 } 
 

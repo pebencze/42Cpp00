@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 15:07:03 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:24:48 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ class PhoneBook {
         int contactCount;
         
         void add(Contact &contact);
-        void search();
+        void search() const;
         void printContact(Contact contact) const;
         
     private:
         Contact _contacts[8];
-    
-        void _addContact(Contact contact);
 };
 
 #endif
