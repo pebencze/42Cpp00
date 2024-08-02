@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 10:06:37 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 11:09:06 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ class PhoneBook {
         Contact contacts[8];
     
     public:
-        void makeContact(Contact &contact) {
+        PhoneBook(void); //constructor
+        ~PhoneBook(void); //destructor
+        
+        void makeContact(Contact &contact) const {
             std::string command;
             std::cout << "Please enter the following information: " << std::endl;
             std::cout << "First name: ";
@@ -101,7 +104,7 @@ class PhoneBook {
             }
             
         };
-        void printContact(Contact contact){
+        void printContact(Contact contact) const {
             std::cout << "First name: " << contact.getFirstName() << std::endl;
             std::cout << "Last name: " << contact.getLastName() << std::endl;
             std::cout << "Nickname: " << contact.getNickname() << std::endl;

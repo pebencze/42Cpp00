@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:57:36 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/01 17:02:44 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/02 10:14:36 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ class Contact {
         std::string phoneNumber;
         std::string darkestSecret;
         
-    public: 
+    public:
+        Contact(void); //constructor
+        ~Contact(void); //destructor
+         
         void setFirstName(std::string firstName) {
             this->firstName = firstName;
         }
