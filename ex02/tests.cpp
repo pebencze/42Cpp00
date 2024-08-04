@@ -37,6 +37,8 @@ int		main( void ) {
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
 
+
+	/*[19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0*/
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 

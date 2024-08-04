@@ -52,7 +52,7 @@ private:
 	int				_nbDeposits;
 	int				_nbWithdrawals;
 
-	Account( void );
+	Account( void ); // private constructor to prevent creation of accounts without initial deposit e.g. Account a;
 
 };
 
