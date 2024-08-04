@@ -1,8 +1,8 @@
 # C++ Module 00
 
 ## Overview
-This is my first project in C++ and in OOP in general. I have learned a lot throught the project! <br /> 
-**Excercise 00** taught me about the standard namespace and how output redirection works in C++, whilst **excercise 01** focused on classes. In **excercise 02** one had to reconstruct a .cpp file based on a testfile, a logfile and a header file to test if we really understood the concepts, especially the initialization list and static members. 
+This is my first project in C++ and in OOP in general. I have learned a lot throughout the project! <br /> 
+**Excercise 00** taught me about the standard namespace and how output redirection works in C++, whilst **excercise 01** focused on classes. In **excercise 02** one had to reconstruct a .cpp file based on a testfile, a logfile and a header file to test if we really understood the concepts, especially the initializer list and static members. 
 
 ## Key Learnings
 C++ was developed by Bjarne Stroustrup in 1985, and in general it enables a clear structure, easier maintenance and execution and DRY code.
@@ -48,7 +48,7 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit), _nbDeposits(
 For error messages I used clog, because is more efficient than cerr.
 
 ### Namespaces
-Namespaces serve as logical structuring of code and in this project we had to use some things from the standard namespace.  <br />
+Namespaces serve as logical structuring of code and in this project we had to use some things from the std namespace.  <br />
 **using namespace std** contains all the definitions from the C++ Standard Library. This includes functions, classes, and objects that are part of the standard.  <br />
     - std::cout, std::vector, std::string  <br />
     - it has also many cool string functions like at() etc.  <br />
