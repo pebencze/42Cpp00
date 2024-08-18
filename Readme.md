@@ -63,6 +63,7 @@ While **using namespace std**; can simplify code by reducing the need for **std:
 	•	#ifndef EXAMPLE_H: Checks if the macro EXAMPLE_H is not defined. 
 	•	#define EXAMPLE_H: Defines the macro EXAMPLE_H to prevent future  inclusion of this header file. 
 	•	#endif: Ends the include guard.
+**#pragma once** is a non-standard but widely supported preprocessor directive in C and C++ that serves the same purpose as include guards: it prevents a header file from being included multiple times within a single translation unit. It is an alternative to traditional include guards (#ifndef, #define, #endif).
 
 ## Links
 [http://www.cplusplus.com/reference/string/string/](http://www.cplusplus.com/reference/string/string/)  <br />
