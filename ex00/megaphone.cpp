@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:17:01 by petrabencze       #+#    #+#             */
-/*   Updated: 2024/08/01 12:47:19 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/18 14:44:53 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     if (argc > 1) {
         for (int j = 0; j < argc; j++) {
             for (size_t i = 0; i < std::strlen(argv[j]); i++)
-                std::cout << static_cast<char>(toupper(static_cast<int>(argv[j][i])));
+                std::cout << static_cast<char>(std::toupper(static_cast<int>(argv[j][i])));
         }
         std::cout << std::endl;
     } else {
