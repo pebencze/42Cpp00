@@ -59,6 +59,11 @@ Namespaces serve as logical structuring of code and in this project we had to us
 While **using namespace std**; can simplify code by reducing the need for **std::** prefixes, there are significant benefits to not using it in certain contexts, including avoiding name conflicts, improving code clarity. It is also forbidden in the subject. <br />
 **::** is called the "scope resolution operator".
 
+### Include Guards (#ifndef, #define, #endif):
+	•	#ifndef EXAMPLE_H: Checks if the macro EXAMPLE_H is not defined. 
+	•	#define EXAMPLE_H: Defines the macro EXAMPLE_H to prevent future  inclusion of this header file. 
+	•	#endif: Ends the include guard.
+
 ## Links
 [http://www.cplusplus.com/reference/string/string/](http://www.cplusplus.com/reference/string/string/)  <br />
 [http://www.cplusplus.com/reference/iomanip/](http://www.cplusplus.com/reference/iomanip/) <br />
