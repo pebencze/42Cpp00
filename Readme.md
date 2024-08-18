@@ -32,7 +32,7 @@ void Contact::setDarkestSecret(std::string darkestSecret) {
 }
 ```
 ### Constructors and Destructors
-Moreover, it can have **constructor** and **destructor** functions that can be called at the creation and destruction of an object. <br />
+Moreover, a class can have **constructor** and **destructor** functions that can be called at the creation and destruction of an object. <br />
 I have also learned about the special instance pointer **this** that refers to the implicit object parameter (to the class). It can only be used inside of non-static functions.  <br />
 Another useful term is the **initializer list** that can be applied in a constructor method to set the value of certain class attributes at object creation.  <br /> 
 Example from ex02: <br />
@@ -41,10 +41,10 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit), _nbDeposits(
 
 ```
 ### Const
-In C++ it is considered good practice to keep your code as constant as possible. If a method does not modify an attribute of my object, I try to make it constrant, by putting the *const* keyword after the brackets. 
+In C++ it is considered good practice to keep our code as constant as possible. If a method does not modify an attribute of my object, I try to make it constrant, by putting the *const* keyword after the brackets. 
 
 ### I/O
-`iostream` is a **header file library** that lets us work with input and output objects <br />
+`<iostream>` is a **header file** that is **part of the standard library** and lets us work with input and output objects <br />
     - **std::cin**: Standard input stream (typically reads from the keyboard) with the extraction operator >>  <br />
     - **std::cout**: Standard output stream (typically writes to the console) with the insertion operator <<  <br />
     - **std::cerr**: Standard error stream (typically writes to the console, used for error messages).  <br />
