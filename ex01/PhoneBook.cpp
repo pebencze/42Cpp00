@@ -6,11 +6,12 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 15:32:39 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 20:38:01 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : contactCount(0) {
@@ -31,6 +32,7 @@ void PhoneBook::printContact(Contact contact) const {
             std::cout << "Last name: " << contact.getLastName() << std::endl;
             std::cout << "Nickname: " << contact.getNickname() << std::endl;
             std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
+			std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
 void PhoneBook::add(Contact &contact) {
@@ -54,42 +56,42 @@ void PhoneBook::add(Contact &contact) {
     _contacts[contactCount % 8] = contact;
     contactCount++;
 }
-        
+
 void PhoneBook::search() const {
     std::string firstName, lastName, nickName;
-    
+
     std::cout << "*******************************************" << std::endl;
     std::cout << "********** P H O N E B O O K **************" << std::endl;
     std::cout << "*******************************************" << std::endl;
     std::cout << "     index|first name| last name|  nickname" << std::endl;
-    
+
     for (int i = 0; i < 8; i++){
         if(!_contacts[i].getFirstName().empty()) {
-            
+
             firstName = _contacts[i].getFirstName().substr(0, 10);
             lastName = _contacts[i].getLastName().substr(0, 10);
             nickName = _contacts[i].getNickname().substr(0, 10);
-            
+
             if (firstName.length() == 10)
-                firstName.back() =  '.';
+                firstName[firstName.size() - 1] = '.';
             else
                 firstName.insert(0, 10 - firstName.length(), ' ');
             if (lastName.length() == 10)
-                lastName.back() =  '.';
+                lastName[lastName.size() - 1] = '.';
             else
                 lastName.insert(0, 10 - lastName.length(), ' ');
             if (nickName.length() == 10)
-                nickName.back() =  '.';
+                nickName[nickName.size() - 1] = '.';
             else
                 nickName.insert(0, 10 - nickName.length(), ' ');
-            
-            std::cout << "         " << i << "|"; 
+
+            std::cout << "         " << i << "|";
             std::cout << firstName << "|";
             std::cout << lastName << "|";
             std::cout << nickName << std::endl;
         }
     }
-    
+
     std::cout << "Enter index of the contact you want to see: ";
     int index;
     std::cin >> index;

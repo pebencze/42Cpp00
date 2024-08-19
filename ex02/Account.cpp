@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:36:08 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/04 13:17:48 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 20:32:33 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,23 @@ int	Account::getTotalAmount( void )
 {
     return _totalAmount;
 }
-   
+
 int	Account::getNbDeposits( void )
 {
     return _totalNbDeposits;
-}   
+}
 
 int	Account::getNbWithdrawals( void )
 {
     return _totalNbWithdrawals;
-}   
+}
 
 void	Account::displayAccountsInfos( void )
 {
     _displayTimestamp();
     std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
-}  
- 
+}
+
 void	Account::makeDeposit( int deposit )
 {
     _displayTimestamp();
@@ -99,18 +99,15 @@ void	Account::displayStatus( void ) const{
 }
 
 void	Account::_displayTimestamp( void ){
-    std::time_t now = std::time(nullptr);
+    std::time_t now = std::time(0);
     std::tm *tm_struct = std::localtime(&now);
 
-    char buffer[20];
-
-    std::snprintf(buffer, sizeof(buffer), "%04d%02d%02d_%02d%02d%02d",
-                     tm_struct->tm_year + 1900,
-                     tm_struct->tm_mon + 1,
-                     tm_struct->tm_mday,
-                     tm_struct->tm_hour,
-                     tm_struct->tm_min,
-                     tm_struct->tm_sec);
-                 
-    std::cout << "[" << buffer << "]";
+	std::cout	<< "["
+				<< tm_struct->tm_year + 1900
+            	<< tm_struct->tm_mon + 1
+            	<< tm_struct->tm_mday
+            	<< tm_struct->tm_hour
+            	<< tm_struct->tm_min
+            	<< tm_struct->tm_sec
+				<< "] ";
 }

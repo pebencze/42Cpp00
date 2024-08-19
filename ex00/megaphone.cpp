@@ -6,11 +6,12 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:17:01 by petrabencze       #+#    #+#             */
-/*   Updated: 2024/08/18 14:44:53 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 20:05:27 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
 #include <cctype>
 
 int main(int argc, char *argv[])
@@ -22,9 +23,9 @@ int main(int argc, char *argv[])
         }
         std::cout << std::endl;
     } else {
-       std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl; 
+       std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     }
-    
+
     return 0;
 }
 
@@ -46,9 +47,9 @@ int main(int argc, char *argv[])
         }
         std::cout << std::endl;
     } else {
-       std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl; 
+       std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     }
-    
+
     return 0;
 }
 */

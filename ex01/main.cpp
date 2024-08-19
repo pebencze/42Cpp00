@@ -6,11 +6,12 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/02 15:34:26 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 20:12:45 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include "PhoneBook.hpp"
 
 int main() {
@@ -20,7 +21,11 @@ int main() {
 
     while (true) {
         std::cout << "Command: ";
-        std::cin >> command;
+        if (!(std::cin >> command)){
+			if (std::cin.eof()){
+				return 0;
+			}
+		}
         if (command == "ADD") {
             phoneBook.add(contact);
         } else if (command == "SEARCH") {
