@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/19 20:38:01 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 21:51:48 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,47 @@ void PhoneBook::printContact(Contact contact) const {
 			std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
+/* int wrongInput(std::string input){
+	if (std::cin.eof() || std::cin.peek() != '\n')
+		return 1;
+	return 0;
+} */
+
+bool isValidInput() {
+    return !(std::cin.eof() || std::cin.peek() != '\n');
+}
+
+/* void PhoneBook::add(Contact &contact) {
+    std::string command;
+    std::cout << "Please enter the following information:\n";
+
+    auto getInput = [&](const std::string& prompt, void (Contact::*setter)(const std::string&)) {
+        std::cout << prompt;
+        if (std::cin >> command && isValidInput()) {
+            (contact.*setter)(command);
+        }
+    };
+
+    getInput("First name: ", &Contact::setFirstName);
+    getInput("Last name: ", &Contact::setLastName);
+    getInput("Nickname: ", &Contact::setNickname);
+    getInput("Phone number: ", &Contact::setPhoneNumber);
+    getInput("Darkest secret: ", &Contact::setDarkestSecret);
+
+    _contacts[contactCount % 8] = contact;
+    contactCount++;
+} */
+
+
 void PhoneBook::add(Contact &contact) {
     std::string command;
     std::cout << "Please enter the following information: " << std::endl;
     std::cout << "First name: ";
-    std::cin >> command;
-    contact.setFirstName(command);
+    //std::getline(std::cin, command);
+	//if (std::cin >> command && !(wrongInput(command))); //command check function with peek, eofcheck
+    //	contact.setFirstName(command);
+	std::cin >> command;
+	contact.setFirstName(command);
     std::cout << "Last name: ";
     std::cin >> command;
     contact.setLastName(command);
@@ -96,10 +131,10 @@ void PhoneBook::search() const {
     int index;
     std::cin >> index;
 
-    if (std::cin.fail()){
+    if (std::cin.fail() || std::cin.peek() != '\n'){
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::clog << "Invalid index." << std::endl;
+        std::clog << "Invalid input." << std::endl;
     } else if (index >= 0 && index < 8 && !_contacts[index].getFirstName().empty()) {
         printContact(_contacts[index]);
     } else {

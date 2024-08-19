@@ -6,12 +6,13 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:05:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/19 20:12:45 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/19 21:24:01 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <limits>
+#include <cstdlib>
 #include "PhoneBook.hpp"
 
 int main() {
@@ -26,12 +27,12 @@ int main() {
 				return 0;
 			}
 		}
-        if (command == "ADD") {
+        if (command == "ADD" && std::cin.peek() == '\n') {
             phoneBook.add(contact);
-        } else if (command == "SEARCH") {
+        } else if (command == "SEARCH" && std::cin.peek() == '\n') {
             phoneBook.search();
-        } else if (command == "EXIT") {
-            break;
+        } else if (command == "EXIT" && std::cin.peek() == '\n') {
+			break;
         } else {
             std::clog << "Invalid command!" << std::endl;
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
