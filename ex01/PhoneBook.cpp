@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/19 21:51:48 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/20 11:34:05 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,39 +35,43 @@ void PhoneBook::printContact(Contact contact) const {
 			std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
-/* int wrongInput(std::string input){
-	if (std::cin.eof() || std::cin.peek() != '\n')
-		return 1;
-	return 0;
-} */
-
-bool isValidInput() {
+bool PhoneBook::isValidInput() {
     return !(std::cin.eof() || std::cin.peek() != '\n');
 }
 
-/* void PhoneBook::add(Contact &contact) {
-    std::string command;
+int PhoneBook::getInput(const std::string& prompt, void (Contact::*setter)(std::string), Contact &contact){
+	std::string input;
+    std::cout << prompt;
+    if (std::cin >> input && isValidInput()) {
+        (contact.*setter)(input);
+		return 0;
+    } else {
+		std::cerr << "Invalid input!" << std::endl;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		return 1;
+	}
+};
+
+void PhoneBook::add(Contact &contact) {
     std::cout << "Please enter the following information:\n";
 
-    auto getInput = [&](const std::string& prompt, void (Contact::*setter)(const std::string&)) {
-        std::cout << prompt;
-        if (std::cin >> command && isValidInput()) {
-            (contact.*setter)(command);
-        }
-    };
-
-    getInput("First name: ", &Contact::setFirstName);
-    getInput("Last name: ", &Contact::setLastName);
-    getInput("Nickname: ", &Contact::setNickname);
-    getInput("Phone number: ", &Contact::setPhoneNumber);
-    getInput("Darkest secret: ", &Contact::setDarkestSecret);
+    if (getInput("First name: ", &Contact::setFirstName, contact))
+		return ;
+    if (getInput("Last name: ", &Contact::setLastName, contact))
+		return ;
+    if (getInput("Nickname: ", &Contact::setNickname, contact))
+		return ;
+   	if (getInput("Phone number: ", &Contact::setPhoneNumber, contact))
+		return ;
+    if (getInput("Darkest secret: ", &Contact::setDarkestSecret, contact))
+		return ;
 
     _contacts[contactCount % 8] = contact;
     contactCount++;
-} */
+}
 
 
-void PhoneBook::add(Contact &contact) {
+/* void PhoneBook::add(Contact &contact) {
     std::string command;
     std::cout << "Please enter the following information: " << std::endl;
     std::cout << "First name: ";
@@ -90,7 +94,7 @@ void PhoneBook::add(Contact &contact) {
     contact.setDarkestSecret(command);
     _contacts[contactCount % 8] = contact;
     contactCount++;
-}
+} */
 
 void PhoneBook::search() const {
     std::string firstName, lastName, nickName;
@@ -134,10 +138,10 @@ void PhoneBook::search() const {
     if (std::cin.fail() || std::cin.peek() != '\n'){
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::clog << "Invalid input." << std::endl;
+        std::cerr << "Invalid input." << std::endl;
     } else if (index >= 0 && index < 8 && !_contacts[index].getFirstName().empty()) {
         printContact(_contacts[index]);
     } else {
-        std::clog << "Invalid index." << std::endl;
+        std::cerr << "Invalid index." << std::endl;
     }
 }
