@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/20 12:17:08 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/20 12:30:03 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : contactCount(0) {
-    std::cout   << "Welcome to the phonebook!" << std::endl
+    std::cout << "Welcome to the phonebook!" << std::endl
             << "Please enter one of the following commands: " << std::endl
             << "  - ADD" << std::endl
             << "  - SEARCH" << std::endl
@@ -59,7 +59,6 @@ void PhoneBook::add(Contact &contact) {
 		|| getInput("Last name: ", &Contact::setLastName, contact)
 		|| getInput("Nickname: ", &Contact::setNickname, contact)
 		|| getInput("Phone number: ", &Contact::setPhoneNumber, contact)
-		|| getInput("Phone number: ", &Contact::setPhoneNumber, contact)
 		|| getInput("Darkest secret: ", &Contact::setDarkestSecret, contact))
 		return ;
 
@@ -67,7 +66,7 @@ void PhoneBook::add(Contact &contact) {
 	contactCount++;
 }
 
-void adjustName(std::string &name) {
+static void adjustName(std::string &name) {
 	if (name.length() == 10)
 		name[name.size() - 1] = '.';
 	else
