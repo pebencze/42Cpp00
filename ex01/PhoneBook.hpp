@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:58:50 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/20 11:23:43 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/20 11:38:12 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PhoneBook {
         void add(Contact &contact);
         void search() const;
         void printContact(Contact contact) const;
-		bool isValidInput();
+		//bool isValidInput();
 		int getInput(const std::string& prompt, void (Contact::*setter)(std::string), Contact &contact);
 
     private:
