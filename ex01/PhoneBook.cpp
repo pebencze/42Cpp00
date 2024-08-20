@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/20 13:26:03 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/20 13:44:57 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void PhoneBook::printContact(Contact contact) const {
 
 int PhoneBook::getInput(const std::string& prompt, void (Contact::*setter)(std::string), Contact &contact){
 	std::string input;
-	// (void)setter;
 
-	//std::cin.clear();
-	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	while (true){
    		std::cout << prompt;
 		if (!(std::getline(std::cin, input))){
@@ -54,21 +51,6 @@ int PhoneBook::getInput(const std::string& prompt, void (Contact::*setter)(std::
 			return 0;
 		}
 	}
-		//  else {
-		//  	std::cerr << "Invalid input!" << std::endl;
-		//  	std::cin.clear();
-		//  	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		//  }
-
-    /* if (std::cin.peek() == '\n') {
-         (contact.*setter)(input);
-	 	return 0;
-    } */
-	/* else {
-		std::cerr << "Invalid input!" << std::endl;
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		return 1;
-	} */
 };
 
 void PhoneBook::add(Contact &contact) {
@@ -97,6 +79,12 @@ static void adjustName(std::string &name) {
 void PhoneBook::search() const {
 	std::string firstName, lastName, nickName;
 	int index;
+
+	if (_contacts[0].getFirstName().empty())
+	{
+		std::cout << "Empty phonebook." << std::endl;
+		return ;
+	}
 
 	std::cout << "*******************************************" << std::endl;
 	std::cout << "********** P H O N E B O O K **************" << std::endl;
@@ -129,8 +117,11 @@ void PhoneBook::search() const {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cerr << "Invalid input." << std::endl;
-    } else if (index >= 0 && index < 8 && !_contacts[index].getFirstName().empty()) {
-        printContact(_contacts[index]);
+    } else if (index >= 0 && index < 8) {
+		if (_contacts[index].getFirstName().empty())
+			std::cout << "Empty contact at given index." << std::endl;
+		else
+        	printContact(_contacts[index]);
     } else {
         std::cerr << "Invalid index." << std::endl;
     }
