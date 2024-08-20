@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:17:09 by pbencze           #+#    #+#             */
-/*   Updated: 2024/08/20 12:30:03 by pbencze          ###   ########.fr       */
+/*   Updated: 2024/08/20 13:26:03 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,44 @@ void PhoneBook::printContact(Contact contact) const {
 
 int PhoneBook::getInput(const std::string& prompt, void (Contact::*setter)(std::string), Contact &contact){
 	std::string input;
-    std::cout << prompt;
-	if (!(std::cin >> input) && std::cin.eof()){
-		std::exit(0);
+	// (void)setter;
+
+	//std::cin.clear();
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	while (true){
+   		std::cout << prompt;
+		if (!(std::getline(std::cin, input))){
+			if (std::cin.eof())
+				std::exit(0);
+		} else if (input.empty()) {
+			continue ;
+		} else {
+			(contact.*setter)(input);
+			return 0;
+		}
 	}
-    else if (std::cin.peek() == '\n') {
-        (contact.*setter)(input);
-		return 0;
-    } else {
+		//  else {
+		//  	std::cerr << "Invalid input!" << std::endl;
+		//  	std::cin.clear();
+		//  	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		//  }
+
+    /* if (std::cin.peek() == '\n') {
+         (contact.*setter)(input);
+	 	return 0;
+    } */
+	/* else {
 		std::cerr << "Invalid input!" << std::endl;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return 1;
-	}
+	} */
 };
 
 void PhoneBook::add(Contact &contact) {
-    std::cout << "Please enter the following information:\n";
+    std::cout << "Please enter the following information:" << std::endl;
 
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (getInput("First name: ", &Contact::setFirstName, contact)
 		|| getInput("Last name: ", &Contact::setLastName, contact)
 		|| getInput("Nickname: ", &Contact::setNickname, contact)
